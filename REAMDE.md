@@ -1,0 +1,1 @@
+A project to create a drumkit using JavaScript. A sound will play when the corresponding key is pressed as well as a short animation.
