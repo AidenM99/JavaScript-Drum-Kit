@@ -1,6 +1,13 @@
-document.addEventListener("keydown",  function(){
+document.addEventListener("keydown",  function(e){
     playSound(event.keyCode);
-    playAnimation(event.keyCode);
+
+    const key = e.keyCode;
+    const div = document.querySelector(`.key[data-key="${key}"]`);
+
+    div.classList.add("playing");
+    setTimeout (function(){
+        div.classList.remove("playing");
+    },100);
 });
 
 function playSound(e) {
@@ -45,13 +52,4 @@ function playSound(e) {
         default:
             console.log("An unspecified button was pressed");
     };
-};
-
-function playAnimation(e){
-    const div = document.querySelectorAll(".key");
-    div.forEach(function(item) {
-        item.addEventListener("click", function(){
-            console.log("hi");
-        });
-    });
 };
